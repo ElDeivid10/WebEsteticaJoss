@@ -1,0 +1,35 @@
+---
+/**
+ * Botón de tienda (App Store / Google Play) con icono y etiqueta.
+ */
+import Icon from './Icon.astro';
+
+interface Props {
+  store: 'ios' | 'play';
+  href?: string;
+  id?: string;
+}
+
+const { store, href = '#', id } = Astro.props;
+
+const labels = {
+  ios: { top: 'Próximamente en', name: 'App Store', icon: 'apple' as const },
+  play: { top: 'Próximamente en', name: 'Google Play', icon: 'googlePlay' as const },
+};
+
+const { top, name, icon } = labels[store];
+---
+
+<a
+  href={href}
+  id={id}
+  aria-label={`${name} - ${top}`}
+  class="group flex items-center gap-3 rounded-xl border border-white/10 px-5 py-3.5 text-white transition-all duration-300 hover:border-rose-500/30"
+  style="background-color: rgba(255, 255, 255, 0.08)"
+>
+  <Icon name={icon} class="h-7 w-7 flex-shrink-0" />
+  <div class="text-left">
+    <p class="text-[10px] leading-none text-white/50">{top}</p>
+    <p class="text-sm font-medium leading-tight">{name}</p>
+  </div>
+</a>

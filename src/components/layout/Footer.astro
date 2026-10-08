@@ -1,0 +1,161 @@
+---
+/**
+ * Footer rico con 4 columnas: marca, navegación, contacto, legal.
+ */
+import { socialLinks } from '../../data/social';
+import { contact } from '../../data/contact';
+import { navigation } from '../../data/navigation';
+import { site } from '../../data/site';
+import SocialIcon from '../ui/SocialIcon.astro';
+import ContactItem from '../ui/ContactItem.astro';
+---
+
+<footer class="bg-ink-900 text-white" role="contentinfo" aria-label="Pie de página">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <!-- Col 1: Marca -->
+    <div class="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
+      <div>
+        <p class="font-serif text-2xl font-light text-white">{site.shortName}</p>
+        <p class="font-serif text-sm tracking-widest text-rose-500 uppercase">
+          Salon
+        </p>
+      </div>
+      <p class="max-w-[220px] text-xs leading-relaxed font-light text-white/40">
+        Tu espacio de confianza para realzar tu belleza natural. Boutique salón
+        en {site.location}.
+      </p>
+
+      <div class="mt-1 flex items-center gap-3">
+        {socialLinks.map((social) => <SocialIcon social={social} />)}
+      </div>
+    </div>
+
+    <!-- Col 2: Navegación -->
+    <div class="flex flex-col gap-4">
+      <h3 class="text-xs tracking-[0.25em] text-rose-500 font-medium uppercase">
+        Navegación
+      </h3>
+      <ul class="flex flex-col gap-2.5" role="list">
+        {
+          navigation.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="inline-block text-sm font-light text-white/45 transition-all duration-200 hover:translate-x-0.5 hover:text-white/90"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Col 3: Contacto -->
+    <div class="flex flex-col gap-4">
+      <h3 class="text-xs tracking-[0.25em] text-rose-500 font-medium uppercase">
+        Contacto
+      </h3>
+      <ul class="flex flex-col gap-3" role="list">
+        <li>
+          <ContactItem
+            item={{ icon: 'phone', text: contact.phone, href: contact.phoneHref }}
+            tone="dark"
+          />
+        </li>
+        <li>
+          <ContactItem
+            item={{ icon: 'mail', text: contact.email, href: `mailto:${contact.email}` }}
+            tone="dark"
+          />
+        </li>
+        <li>
+          <ContactItem
+            item={{ icon: 'mapPin', text: contact.address }}
+            tone="dark"
+          />
+        </li>
+        <li>
+          <ContactItem
+            item={{
+              icon: 'clock',
+              text: `${contact.hours[0].label}: ${contact.hours[0].value}\n${contact.hours[1].label}: ${contact.hours[1].value}`,
+            }}
+            tone="dark"
+            multiline
+          />
+        </li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Legal / Soporte -->
+    <div class="flex flex-col gap-4">
+      <h3 class="text-xs tracking-[0.25em] text-rose-500 font-medium uppercase">
+        Información
+      </h3>
+      <ul class="flex flex-col gap-2.5" role="list">
+        <li>
+          <a
+            href="#"
+            id="link-terminos"
+            class="text-sm font-light text-white/45 transition-colors hover:text-white/90"
+          >
+            Términos y Condiciones
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            id="link-privacidad"
+            class="text-sm font-light text-white/45 transition-colors hover:text-white/90"
+          >
+            Política de Privacidad
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            id="link-soporte"
+            class="text-sm font-light text-white/45 transition-colors hover:text-white/90"
+          >
+            Centro de Soporte
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:soporte@yossbeauty.com"
+            id="link-soporte-email"
+            class="text-sm font-light text-white/45 transition-colors hover:text-white/90"
+          >
+            soporte@yossbeauty.com
+          </a>
+        </li>
+      </ul>
+
+      <div
+        class="mt-2 rounded-xl border p-3"
+        style="background: rgba(163, 107, 126, 0.07); border-color: rgba(255, 255, 255, 0.06);"
+      >
+        <p class="text-[10px] leading-relaxed text-white/35">
+          ¿Necesitas ayuda? Escríbenos por WhatsApp o al correo de soporte y te
+          atenderemos a la brevedad posible.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Separador -->
+  <div class="border-t border-white/5">
+    <div
+      class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-5 text-center sm:flex-row"
+    >
+      <p class="text-[11px] font-light text-white/25">
+        {site.copyright}
+      </p>
+      <p class="text-[11px] font-light text-white/20">
+        Desarrollado con <span class="text-rose-300">❤</span> por
+        <span class="text-rose-500/50">{site.developers}</span>
+      </p>
+    </div>
+  </div>
+</footer>

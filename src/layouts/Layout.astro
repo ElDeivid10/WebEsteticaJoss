@@ -1,28 +1,44 @@
 ---
+/**
+ * Layout base: head, fuentes, meta tags, slot.
+ * No contiene UI; los componentes estructurales viven en /components/layout.
+ */
 import '../styles/global.css';
+import { site } from '../data/site';
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-
 const {
-  title = "Yoss Beauty Salon | Tu mejor versión comienza aquí",
-  description = "Salón de belleza boutique en Uruapan, Michoacán. Agenda tu cita fácilmente desde nuestra app. Cortes, coloración, depilación, uñas y más.",
+  title = `${site.name} | ${site.tagline}`,
+  description = site.description,
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={site.locale.split('-')[0]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#2c2829" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:site_name" content={site.name} />
+
     <title>{title}</title>
+
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,33 +46,22 @@ const {
       rel="stylesheet"
     />
   </head>
-  <body class="bg-[#2c2829] antialiased h-[100dvh] w-full overflow-hidden">
-    <main id="app-container" class="h-full w-full overflow-y-auto scroll-smooth relative">
+  <body
+    class="bg-ink-800 antialiased"
+  >
+    <!-- Skip link para accesibilidad -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-rose-500 focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:shadow-lg"
+    >
+      Saltar al contenido principal
+    </a>
+
+    <main
+      id="main-content"
+      class="relative w-full"
+    >
       <slot />
     </main>
   </body>
 </html>
-
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    font-family: 'DM Sans', sans-serif;
-  }
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #fcf9fa;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #a36b7e;
-    border-radius: 3px;
-  }
-</style>

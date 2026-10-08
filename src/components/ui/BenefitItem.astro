@@ -1,0 +1,27 @@
+---
+/**
+ * Item de beneficio (sección App). Icono + título + descripción.
+ */
+import Icon from './Icon.astro';
+import type { Benefit } from '../../data/benefits';
+
+interface Props {
+  benefit: Benefit;
+}
+
+const { benefit } = Astro.props;
+const { icon, title, description } = benefit;
+---
+
+<li class="flex items-start gap-4">
+  <div
+    class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-rose-500/20 bg-rose-500/15"
+    aria-hidden="true"
+  >
+    <Icon name={icon} class="h-5 w-5 text-rose-500" />
+  </div>
+  <div>
+    <p class="text-sm font-medium text-white">{title}</p>
+    <p class="mt-0.5 text-xs font-light leading-relaxed text-white/45">{description}</p>
+  </div>
+</li>

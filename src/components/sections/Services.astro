@@ -1,0 +1,29 @@
+---
+/**
+ * Catálogo de servicios en grid de 4 columnas.
+ */
+import { services } from '../../data/services';
+import SectionHeader from '../ui/SectionHeader.astro';
+import ServiceCard from '../ui/ServiceCard.astro';
+import Container from '../ui/Container.astro';
+---
+
+<section
+  id="servicios"
+  class="bg-rose-100 px-4 py-20"
+  aria-label="Catálogo de servicios"
+>
+  <Container width="lg">
+    <SectionHeader
+      eyebrow="Lo que ofrecemos"
+      title="Catálogo de Servicios"
+      description="Tratamientos de alta calidad pensados para realzar tu belleza natural en un ambiente exclusivo."
+      titleClass="text-ink-800"
+      descriptionClass="text-ink-800/60"
+    />
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </Container>
+</section>

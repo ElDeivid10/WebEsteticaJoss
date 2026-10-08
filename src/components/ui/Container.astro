@@ -1,0 +1,27 @@
+---
+/**
+ * Contenedor con max-width consistente para mantener el ritmo vertical.
+ */
+interface Props {
+  class?: string;
+  width?: 'sm' | 'md' | 'lg' | 'xl';
+  as?: string;
+}
+
+const {
+  class: className = '',
+  width = 'xl',
+  as: Tag = 'div',
+} = Astro.props;
+
+const widths = {
+  sm: 'max-w-3xl',
+  md: 'max-w-5xl',
+  lg: 'max-w-6xl',
+  xl: 'max-w-7xl',
+};
+---
+
+<Tag class:list={['mx-auto px-4 sm:px-6', widths[width], className]}>
+  <slot />
+</Tag>

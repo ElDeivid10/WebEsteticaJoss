@@ -1,0 +1,85 @@
+---
+/**
+ * Barra de información con ubicación, horarios L-V y horarios Sábado.
+ * Muestra horarios en formato distinto para mobile vs desktop.
+ */
+import { contact } from '../../data/contact';
+import Icon from '../ui/Icon.astro';
+---
+
+<section
+  id="info-bar"
+  class="bg-rose-500 px-4 py-6 text-white"
+  aria-label="Información de contacto y horarios"
+>
+  <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4">
+    <!-- Ubicación -->
+    <div class="flex items-center justify-center gap-3 sm:justify-start">
+      <div
+        class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/15"
+        aria-hidden="true"
+      >
+        <Icon name="mapPin" class="h-5 w-5" />
+      </div>
+      <div>
+        <p class="text-xs font-light tracking-widest text-white/70 uppercase">
+          Ubicación
+        </p>
+        <p class="mt-0.5 text-sm font-medium">{contact.address.split(',')[0]}</p>
+      </div>
+    </div>
+
+    <!-- Horario L-V (desktop: dos líneas) -->
+    <div class="hidden items-center justify-center gap-3 sm:flex">
+      <div class="h-10 w-px bg-white/20" aria-hidden="true"></div>
+      <div
+        class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/15"
+        aria-hidden="true"
+      >
+        <Icon name="clock" class="h-5 w-5" />
+      </div>
+      <div>
+        <p class="text-xs font-light tracking-widest text-white/70 uppercase">
+          {contact.hours[0].label}
+        </p>
+        <p class="mt-0.5 text-sm font-medium">11:00 AM – 2:00 PM</p>
+        <p class="text-sm font-medium">4:00 PM – 7:00 PM</p>
+      </div>
+      <div class="h-10 w-px bg-white/20" aria-hidden="true"></div>
+    </div>
+
+    <!-- Horario L-V (móvil: una línea) -->
+    <div class="flex items-center justify-center gap-3 sm:hidden">
+      <div
+        class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/15"
+        aria-hidden="true"
+      >
+        <Icon name="clock" class="h-5 w-5" />
+      </div>
+      <div>
+        <p class="text-xs font-light tracking-widest text-white/70 uppercase">
+          {contact.hours[0].label}
+        </p>
+        <p class="mt-0.5 text-sm font-medium">
+          11:00 AM – 2:00 PM · 4:00 PM – 7:00 PM
+        </p>
+      </div>
+    </div>
+
+    <!-- Sábado -->
+    <div class="flex items-center justify-center gap-3 sm:justify-end">
+      <div
+        class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/15"
+        aria-hidden="true"
+      >
+        <Icon name="calendar" class="h-5 w-5" />
+      </div>
+      <div>
+        <p class="text-xs font-light tracking-widest text-white/70 uppercase">
+          {contact.hours[1].label}
+        </p>
+        <p class="mt-0.5 text-sm font-medium">11:00 AM – 6:00 PM</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+/**
+ * Enlace de red social con icono.
+ */
+import Icon from './Icon.astro';
+import type { SocialLink } from '../../data/social';
+
+interface Props {
+  social: SocialLink;
+}
+
+const { social } = Astro.props;
+const { id, href, icon, ariaLabel } = social;
+---
+
+<a
+  href={href}
+  id={`footer-${id}`}
+  aria-label={ariaLabel}
+  class="group flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-all duration-300 hover:border-rose-500/30 hover:bg-rose-500/20"
+>
+  <Icon
+    name={icon}
+    class="h-4 w-4 text-white/50 transition-colors group-hover:text-rose-500"
+  />
+</a>

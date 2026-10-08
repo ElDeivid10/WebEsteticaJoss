@@ -1,0 +1,43 @@
+---
+/**
+ * Panel del menú móvil. Aparece como overlay fullscreen con animación.
+ */
+import { navigation } from '../../data/navigation';
+import { site } from '../../data/site';
+---
+
+<div
+  id="mobile-menu"
+  data-open="false"
+  class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-ink-900/95 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menú de navegación móvil"
+>
+  <ul class="flex flex-col items-center gap-6" role="list">
+    {
+      navigation.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            data-section-id={link.id}
+            class="nav-link font-serif text-2xl font-light text-white transition-colors hover:text-rose-500"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="text-[10px] tracking-widest text-white/40 uppercase">
+    {site.location}
+  </p>
+</div>
+
+<style>
+  #mobile-menu[data-open='true'] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>

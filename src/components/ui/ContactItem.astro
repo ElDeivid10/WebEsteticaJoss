@@ -1,0 +1,41 @@
+---
+/**
+ * Item de contacto con icono (fila usada en About y Footer).
+ */
+import Icon from './Icon.astro';
+import type { ContactItem } from '../../data/contact';
+
+interface Props {
+  item: ContactItem;
+  tone?: 'light' | 'dark';
+  multiline?: boolean;
+}
+
+const { item, tone = 'light', multiline = false } = Astro.props;
+const { icon, text, href } = item;
+
+const textColor = tone === 'dark' ? 'text-white/45' : 'text-white/50';
+const hoverColor = tone === 'dark' ? 'hover:text-rose-500' : 'hover:text-rose-500';
+const Tag = href ? 'a' : 'span';
+---
+
+<div class="flex items-start gap-3">
+  <div
+    class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg"
+    style="background: rgba(163, 107, 126, 0.12)"
+    aria-hidden="true"
+  >
+    <Icon name={icon} class="h-4 w-4 text-rose-500" />
+  </div>
+  <Tag
+    href={href}
+    class:list={[
+      'text-sm font-light leading-relaxed transition-colors',
+      textColor,
+      href && hoverColor,
+      multiline && 'whitespace-pre-line',
+    ]}
+  >
+    {text}
+  </Tag>
+</div>

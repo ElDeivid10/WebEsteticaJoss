@@ -1,0 +1,39 @@
+/* =====================================================
+   YOSS BEAUTY SALON — DESIGN TOKENS
+   Single source of truth para colores, fuentes y radios
+   ===================================================== */
+
+@theme {
+  /* ── Paleta de marca ────────────────────────────── */
+  --color-rose-50: #fdf2f4;
+  --color-rose-100: #fcf9fa;
+  --color-rose-200: #f0eaec;
+  --color-rose-300: #e8bfcc;
+  --color-rose-400: #c895a6;
+  --color-rose-500: #a36b7e;
+  --color-rose-600: #8f5a6b;
+
+  --color-ink-50: #f5f1f2;
+  --color-ink-100: #e0d8db;
+  --color-ink-700: #4a4346;
+  --color-ink-800: #2c2829;
+  --color-ink-900: #1a1618;
+  --color-ink-950: #0f0d0e;
+
+  /* ── Tipografía ─────────────────────────────────── */
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ── Radios y sombras ───────────────────────────── */
+  --radius-card: 1rem;
+  --radius-pill: 9999px;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 1.75rem;
+
+  --shadow-glow-rose: 0 0 40px -8px rgba(163, 107, 126, 0.45);
+  --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+
+  /* ── Easing curves ──────────────────────────────── */
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}

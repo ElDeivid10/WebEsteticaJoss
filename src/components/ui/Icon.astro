@@ -1,0 +1,132 @@
+---
+/**
+ * Wrapper que mapea nombres a componentes de icono.
+ * Permite usar <Icon name="scissors" /> desde data sin importar cada uno.
+ */
+import Scissors from '../../icons/Scissors.astro';
+import Palette from '../../icons/Palette.astro';
+import Sparkles from '../../icons/Sparkles.astro';
+import Heart from '../../icons/Heart.astro';
+import MapPin from '../../icons/MapPin.astro';
+import Clock from '../../icons/Clock.astro';
+import Calendar from '../../icons/Calendar.astro';
+import Phone from '../../icons/Phone.astro';
+import Mail from '../../icons/Mail.astro';
+import Bell from '../../icons/Bell.astro';
+import Star from '../../icons/Star.astro';
+import User from '../../icons/User.astro';
+import Download from '../../icons/Download.astro';
+import ChevronDown from '../../icons/ChevronDown.astro';
+import Warning from '../../icons/Warning.astro';
+import Apple from '../../icons/Apple.astro';
+import GooglePlay from '../../icons/GooglePlay.astro';
+import Instagram from '../../icons/Instagram.astro';
+import Facebook from '../../icons/Facebook.astro';
+import TikTok from '../../icons/TikTok.astro';
+import WhatsApp from '../../icons/WhatsApp.astro';
+import Menu from '../../icons/Menu.astro';
+import Close from '../../icons/Close.astro';
+
+export type IconName =
+  | 'scissors'
+  | 'palette'
+  | 'sparkles'
+  | 'heart'
+  | 'mapPin'
+  | 'clock'
+  | 'calendar'
+  | 'phone'
+  | 'mail'
+  | 'bell'
+  | 'star'
+  | 'user'
+  | 'download'
+  | 'chevronDown'
+  | 'warning'
+  | 'apple'
+  | 'googlePlay'
+  | 'instagram'
+  | 'facebook'
+  | 'tiktok'
+  | 'whatsapp'
+  | 'menu'
+  | 'close';
+
+interface Props {
+  name: IconName;
+  class?: string;
+  'aria-label'?: string;
+}
+
+const { name, class: className, 'aria-label': ariaLabel } = Astro.props;
+---
+
+{
+  name === 'scissors' && <Scissors class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'palette' && <Palette class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'sparkles' && <Sparkles class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'heart' && <Heart class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'mapPin' && <MapPin class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'clock' && <Clock class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'calendar' && <Calendar class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'phone' && <Phone class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'mail' && <Mail class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'bell' && <Bell class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'star' && <Star class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'user' && <User class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'download' && <Download class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'chevronDown' && <ChevronDown class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'warning' && <Warning class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'apple' && <Apple class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'googlePlay' && <GooglePlay class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'instagram' && <Instagram class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'facebook' && <Facebook class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'tiktok' && <TikTok class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'whatsapp' && <WhatsApp class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'menu' && <Menu class={className} aria-label={ariaLabel} />
+}
+{
+  name === 'close' && <Close class={className} aria-label={ariaLabel} />
+}

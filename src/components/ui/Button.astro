@@ -1,0 +1,65 @@
+---
+/**
+ * Botón / link con variantes. Reutilizable en toda la app.
+ */
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'ghost' | 'glass';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
+  id?: string;
+  'aria-label'?: string;
+  class?: string;
+  shine?: boolean;
+  external?: boolean;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  type,
+  id,
+  'aria-label': ariaLabel,
+  class: className = '',
+  shine = false,
+  external = false,
+} = Astro.props;
+
+const sizes = {
+  sm: 'px-4 py-2 text-xs',
+  md: 'px-6 py-3 text-sm',
+  lg: 'px-8 py-4 text-base',
+};
+
+const variants = {
+  primary:
+    'bg-rose-500 hover:bg-rose-600 text-white shadow-lg shadow-rose-500/30 hover:shadow-rose-500/50 hover:scale-105',
+  ghost: 'bg-transparent text-white hover:bg-white/5',
+  glass:
+    'glass-light text-white hover:border-rose-500/30',
+};
+
+const base =
+  'group relative inline-flex items-center justify-center gap-2 font-medium tracking-wide rounded-2xl transition-all duration-300 overflow-hidden';
+const Tag = href ? 'a' : 'button';
+const externalAttrs = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<Tag
+  href={href}
+  type={!href ? type : undefined}
+  id={id}
+  aria-label={ariaLabel}
+  class:list={[base, sizes[size], variants[variant], className]}
+  {...externalAttrs}
+>
+  <slot />
+  {
+    shine && (
+      <span class="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
+        <span class="absolute -inset-full top-0 block h-full w-1/2 bg-white/10 -skew-x-[20deg] group-hover:translate-x-[400%] transition-transform duration-700" />
+      </span>
+    )
+  }
+</Tag>
