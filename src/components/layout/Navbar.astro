@@ -56,12 +56,13 @@ import MobileMenu from './MobileMenu.astro';
 </script>
 
 <style>
-  /* Estado scrolled */
-  #site-navbar[data-scrolled='true'] {
+  /* Estado scrolled — se aplica al <nav> (no al <header>)
+     para que el border-radius y backdrop-filter funcionen correctamente. */
+  #site-navbar[data-scrolled='true'] nav {
     background: rgba(26, 22, 24, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(163, 107, 126, 0.15);
+    border-color: rgba(163, 107, 126, 0.25);
     box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
   }
 
