@@ -1,7 +1,8 @@
 ---
 /**
- * Hero con parallax, orbes decorativas y CTA.
- * La imagen se importa desde src/assets/ para que Astro la optimice.
+ * Hero con parallax (manejado por GSAP vía data-parallax),
+ * orbes decorativas y CTA. Animaciones de entrada controladas
+ * por data-animate="hero" (stagger de hijos).
  */
 import { Image } from 'astro:assets';
 import heroImage from '../../assets/images/hero_salon.jpg';
@@ -15,10 +16,10 @@ import { site } from '../../data/site';
   class="relative flex min-h-screen items-center justify-center overflow-hidden"
   aria-label="Hero del salón de belleza Yoss"
 >
-  <!-- Imagen con parallax -->
+  <!-- Imagen con parallax (GSAP scrub bidireccional) -->
   <div
-    id="parallax-bg"
-    class="absolute inset-0 scale-110 will-change-transform"
+    data-parallax="0.3"
+    class="absolute inset-0 scale-125 will-change-transform"
   >
     <Image
       src={heroImage}
@@ -63,8 +64,9 @@ import { site } from '../../data/site';
     </div>
   </div>
 
-  <!-- Contenido del hero -->
+  <!-- Contenido del hero (animado en cascada al cargar) -->
   <div
+    data-animate="hero"
     class="relative z-[3] mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 pt-20 text-center"
   >
     <span
@@ -113,8 +115,3 @@ import { site } from '../../data/site';
     </div>
   </div>
 </section>
-
-<script>
-  import { initParallax } from '../../lib/parallax';
-  initParallax();
-</script>

@@ -27,7 +27,7 @@ import Container from '../ui/Container.astro';
     <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
       <!-- Izquierda: beneficios -->
       <div class="flex flex-col gap-8">
-        <div>
+        <div data-animate="fade-up">
           <span
             class="text-xs tracking-[0.3em] text-rose-500 font-medium uppercase"
           >
@@ -45,11 +45,11 @@ import Container from '../ui/Container.astro';
           </p>
         </div>
 
-        <ul class="flex flex-col gap-4" role="list">
+        <ul data-animate-stagger class="flex flex-col gap-4" role="list">
           {benefits.map((benefit) => <BenefitItem benefit={benefit} />)}
         </ul>
 
-        <div class="flex flex-col gap-3 sm:flex-row">
+        <div data-animate="fade-up" class="flex flex-col gap-3 sm:flex-row">
           <StoreButton store="ios" id="cta-app-store" />
           <StoreButton store="play" id="cta-google-play" />
         </div>
