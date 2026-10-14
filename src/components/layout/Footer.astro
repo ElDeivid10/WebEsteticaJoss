@@ -1,6 +1,7 @@
 ---
 /**
  * Footer rico con 4 columnas: marca, navegación, contacto, legal.
+ * Incluye modales de Términos y Condiciones y Política de Privacidad.
  */
 import { socialLinks } from '../../data/social';
 import { contact } from '../../data/contact';
@@ -71,7 +72,7 @@ import ContactItem from '../ui/ContactItem.astro';
         </li>
         <li>
           <ContactItem
-            item={{ icon: 'mapPin', text: contact.address }}
+            item={{ icon: 'mapPin', text: contact.address, href: contact.mapsHref }}
             tone="dark"
           />
         </li>
@@ -95,31 +96,22 @@ import ContactItem from '../ui/ContactItem.astro';
       </h3>
       <ul class="flex flex-col gap-2.5" role="list">
         <li>
-          <a
-            href="#"
-            id="link-terminos"
-            class="text-sm font-light text-white/45 transition-colors hover:text-white/90"
+          <button
+            id="btn-terminos"
+            type="button"
+            class="text-left text-sm font-light text-white/45 transition-colors hover:text-white/90 cursor-pointer"
           >
             Términos y Condiciones
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href="#"
-            id="link-privacidad"
-            class="text-sm font-light text-white/45 transition-colors hover:text-white/90"
+          <button
+            id="btn-privacidad"
+            type="button"
+            class="text-left text-sm font-light text-white/45 transition-colors hover:text-white/90 cursor-pointer"
           >
             Política de Privacidad
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            id="link-soporte"
-            class="text-sm font-light text-white/45 transition-colors hover:text-white/90"
-          >
-            Centro de Soporte
-          </a>
+          </button>
         </li>
         <li>
           <a
@@ -159,3 +151,181 @@ import ContactItem from '../ui/ContactItem.astro';
     </div>
   </div>
 </footer>
+
+<!-- ─── MODAL: Términos y Condiciones ─── -->
+<div
+  id="modal-terminos"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="terminos-title"
+  class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+>
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" id="overlay-terminos"></div>
+  <div class="relative z-10 max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-8 shadow-2xl">
+    <button
+      id="close-terminos"
+      type="button"
+      aria-label="Cerrar términos y condiciones"
+      class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors"
+    >
+      ✕
+    </button>
+    <h2 id="terminos-title" class="font-serif text-2xl font-medium text-gray-900 mb-1">Términos y Condiciones</h2>
+    <p class="text-xs text-gray-400 mb-6">Última actualización: octubre 2026</p>
+
+    <div class="prose prose-sm max-w-none text-gray-600 space-y-5">
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">1. Aceptación</h3>
+        <p>Al acceder y utilizar el sitio web de <strong>Yoss Beauty Salon</strong> (en adelante, "el Sitio"), usted acepta quedar vinculado por estos Términos y Condiciones. Si no está de acuerdo con alguno de los términos aquí establecidos, le rogamos que no utilice el Sitio.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">2. Uso del Sitio</h3>
+        <p>El Sitio tiene como único propósito proporcionar información sobre los servicios, horarios, ubicación y medios de contacto de Yoss Beauty Salon. Queda estrictamente prohibido:</p>
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>Reproducir, copiar o distribuir el contenido del Sitio sin autorización expresa por escrito.</li>
+          <li>Utilizar el contenido para fines comerciales propios o de terceros.</li>
+          <li>Modificar, adaptar o crear obras derivadas basadas en el contenido del Sitio.</li>
+          <li>Realizar cualquier acción que pueda dañar la reputación del negocio.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">3. Propiedad Intelectual</h3>
+        <p>Todo el contenido publicado en este Sitio —incluyendo textos, imágenes, logotipos, diseños y estructura— es propiedad exclusiva de Yoss Beauty Salon y está protegido por las leyes de derechos de autor aplicables en México. Cualquier uso no autorizado será perseguido conforme a la ley.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">4. Información publicada</h3>
+        <p>Nos esforzamos por mantener la información actualizada y precisa; sin embargo, Yoss Beauty Salon se reserva el derecho de modificar, en cualquier momento y sin previo aviso, los precios, horarios, servicios y cualquier otro dato publicado en el Sitio.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">5. Limitación de Responsabilidad</h3>
+        <p>Yoss Beauty Salon no será responsable de ningún daño directo, indirecto, incidental o consecuente que resulte del acceso o uso del Sitio, incluidos los causados por errores, omisiones, interrupciones o demoras.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">6. Modificaciones</h3>
+        <p>Yoss Beauty Salon se reserva el derecho de actualizar estos Términos en cualquier momento. Los cambios serán efectivos desde su publicación en el Sitio. El uso continuado del Sitio después de cualquier modificación implica la aceptación de los nuevos términos.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">7. Jurisdicción</h3>
+        <p>Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Para cualquier controversia derivada del uso de este Sitio, las partes se someten a la jurisdicción de los tribunales competentes de Uruapan, Michoacán.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">8. Contacto</h3>
+        <p>Para cualquier pregunta relacionada con estos Términos, puede contactarnos en: <a href="mailto:contacto@yossbeauty.com" class="text-rose-500 hover:underline">contacto@yossbeauty.com</a></p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MODAL: Política de Privacidad ─── -->
+<div
+  id="modal-privacidad"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="privacidad-title"
+  class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+>
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" id="overlay-privacidad"></div>
+  <div class="relative z-10 max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-8 shadow-2xl">
+    <button
+      id="close-privacidad"
+      type="button"
+      aria-label="Cerrar política de privacidad"
+      class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors"
+    >
+      ✕
+    </button>
+    <h2 id="privacidad-title" class="font-serif text-2xl font-medium text-gray-900 mb-1">Política de Privacidad</h2>
+    <p class="text-xs text-gray-400 mb-6">Última actualización: octubre 2026</p>
+
+    <div class="prose prose-sm max-w-none text-gray-600 space-y-5">
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">1. Responsable</h3>
+        <p><strong>Yoss Beauty Salon</strong>, ubicado en Uruapan, Michoacán, México, es el responsable del tratamiento de los datos personales que se pudieran recabar a través de este Sitio o de los canales de contacto vinculados.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">2. Datos que podemos recabar</h3>
+        <p>El Sitio, en su estado actual, <strong>no recopila ni almacena datos personales</strong> mediante formularios o bases de datos propias. La información de contacto que usted proporcione voluntariamente a través de WhatsApp, correo electrónico u otras plataformas de terceros, estará sujeta a las políticas de privacidad de dichas plataformas.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">3. Finalidad</h3>
+        <p>En caso de que en el futuro se implemente algún mecanismo de recolección de datos (por ejemplo, a través de nuestra aplicación móvil), los datos únicamente serán utilizados para:</p>
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>Gestionar reservas y citas de servicios.</li>
+          <li>Enviar recordatorios de citas agendadas.</li>
+          <li>Mejorar la calidad del servicio ofrecido.</li>
+          <li>Comunicaciones relacionadas exclusivamente con el salón.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">4. Compartición de datos</h3>
+        <p>Yoss Beauty Salon <strong>no vende, cede ni comparte</strong> información personal de sus clientes con terceros, salvo que sea requerido por autoridad competente o sea estrictamente necesario para la prestación del servicio solicitado.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">5. Derechos ARCO</h3>
+        <p>Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) de México, usted tiene derecho de Acceso, Rectificación, Cancelación y Oposición (ARCO) respecto a sus datos personales. Para ejercer estos derechos, contáctenos en:</p>
+        <p class="mt-2"><a href="mailto:contacto@yossbeauty.com" class="text-rose-500 hover:underline">contacto@yossbeauty.com</a></p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">6. Cookies y rastreo</h3>
+        <p>Este Sitio no utiliza cookies de rastreo ni herramientas de análisis de comportamiento que identifiquen al usuario de forma personal.</p>
+      </section>
+
+      <section>
+        <h3 class="font-semibold text-gray-800 mb-2">7. Cambios a esta Política</h3>
+        <p>Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Cualquier cambio será publicado en esta misma sección del Sitio.</p>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Modal logic ──────────────────────────────────────────
+  function openModal(id: string) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    // focus trap: move focus to close button
+    const closeBtn = modal.querySelector<HTMLButtonElement>('[id^="close-"]');
+    closeBtn?.focus();
+  }
+
+  function closeModal(id: string) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  // Términos
+  document.getElementById('btn-terminos')?.addEventListener('click', () => openModal('modal-terminos'));
+  document.getElementById('close-terminos')?.addEventListener('click', () => closeModal('modal-terminos'));
+  document.getElementById('overlay-terminos')?.addEventListener('click', () => closeModal('modal-terminos'));
+
+  // Privacidad
+  document.getElementById('btn-privacidad')?.addEventListener('click', () => openModal('modal-privacidad'));
+  document.getElementById('close-privacidad')?.addEventListener('click', () => closeModal('modal-privacidad'));
+  document.getElementById('overlay-privacidad')?.addEventListener('click', () => closeModal('modal-privacidad'));
+
+  // Escape key closes any open modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal('modal-terminos');
+      closeModal('modal-privacidad');
+    }
+  });
+</script>

@@ -14,9 +14,16 @@ import Icon from '../ui/Icon.astro';
 >
   <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4">
     <!-- Ubicación -->
-    <div data-animate="fade-up" class="flex items-center justify-center gap-3 sm:justify-start">
+    <a
+      href={contact.mapsHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-animate="fade-up"
+      class="group flex items-center justify-center gap-3 text-white transition-opacity hover:opacity-90 sm:justify-start"
+      title="Ver ubicación en Google Maps"
+    >
       <div
-        class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/15"
+        class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/15 transition-transform group-hover:scale-105"
         aria-hidden="true"
       >
         <Icon name="mapPin" class="h-5 w-5" />
@@ -25,9 +32,11 @@ import Icon from '../ui/Icon.astro';
         <p class="text-xs font-light tracking-widest text-white/70 uppercase">
           Ubicación
         </p>
-        <p class="mt-0.5 text-sm font-medium">{contact.address.split(',')[0]}</p>
+        <p class="mt-0.5 text-sm font-medium leading-snug underline-offset-2 group-hover:underline">
+          {contact.address}
+        </p>
       </div>
-    </div>
+    </a>
 
     <!-- Horario L-V (desktop: dos líneas) -->
     <div data-animate="fade-up" class="hidden items-center justify-center gap-3 sm:flex">
