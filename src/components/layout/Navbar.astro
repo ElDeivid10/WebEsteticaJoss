@@ -15,7 +15,7 @@ import MobileMenu from './MobileMenu.astro';
   aria-label="Navegación principal"
 >
   <nav
-    class="flex items-center justify-center rounded-full border border-rose-200/50 bg-white/95 px-5 py-3 shadow-2xl backdrop-blur-2xl"
+    class="flex items-center justify-center rounded-full border border-beige-200/50 bg-white/95 px-5 py-3 shadow-2xl backdrop-blur-2xl"
     role="navigation"
   >
     <ul class="flex items-center gap-4 sm:gap-6" role="list">
@@ -26,7 +26,7 @@ import MobileMenu from './MobileMenu.astro';
               href={link.href}
               data-section-id={link.id}
               aria-label={link.ariaLabel}
-              class="nav-link rounded-full px-3 py-1.5 text-xs font-medium text-ink-700 transition-colors hover:text-rose-500 sm:text-sm"
+              class="nav-link rounded-full px-3 py-1.5 text-xs font-medium text-ink-700 transition-colors hover:text-olive-500 sm:text-sm"
             >
               {link.label}
             </a>
@@ -38,7 +38,7 @@ import MobileMenu from './MobileMenu.astro';
     <button
       id="mobile-menu-toggle"
       type="button"
-      class="absolute right-4 flex h-9 w-9 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-rose-50 md:hidden"
+      class="absolute right-4 flex h-9 w-9 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-olive-50 md:hidden"
       aria-label="Abrir menú de navegación"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -62,7 +62,7 @@ import MobileMenu from './MobileMenu.astro';
     background: rgba(26, 22, 24, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-color: rgba(163, 107, 126, 0.25);
+    border-color: rgba(107, 111, 53, 0.25);
     box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
   }
 
@@ -72,12 +72,12 @@ import MobileMenu from './MobileMenu.astro';
 
   /* Link activo */
   .nav-link[data-active='true'] {
-    color: var(--color-rose-500);
-    background: rgba(163, 107, 126, 0.1);
+    color: var(--color-olive-500);
+    background: rgba(107, 111, 53, 0.1);
   }
 
   #site-navbar[data-scrolled='true'] .nav-link[data-active='true'] {
-    color: var(--color-rose-300);
+    color: var(--color-olive-300);
   }
 
   /* Mostrar toggle solo en mobile (override del absolute) */

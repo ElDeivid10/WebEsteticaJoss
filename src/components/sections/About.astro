@@ -46,7 +46,7 @@ import Container from '../ui/Container.astro';
   <!-- Orb central -->
   <div
     class="pointer-events-none absolute top-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full opacity-10 blur-3xl"
-    style="background: radial-gradient(ellipse, #a36b7e 0%, transparent 70%);"
+    style="background: radial-gradient(ellipse, #6b6f35 0%, transparent 70%);"
     aria-hidden="true"
   ></div>
 
@@ -63,11 +63,11 @@ import Container from '../ui/Container.astro';
         <div class="relative">
           <!-- Marcos decorativos -->
           <div
-            class="absolute -top-3 -left-3 h-full w-full rounded-3xl border border-rose-500/30"
+            class="absolute -top-3 -left-3 h-full w-full rounded-3xl border border-olive-500/30"
             aria-hidden="true"
           ></div>
           <div
-            class="absolute -bottom-3 -right-3 h-full w-full rounded-3xl border border-rose-300/15"
+            class="absolute -bottom-3 -right-3 h-full w-full rounded-3xl border border-olive-300/15"
             aria-hidden="true"
           ></div>
 
@@ -88,7 +88,7 @@ import Container from '../ui/Container.astro';
               style="background: rgba(44, 40, 41, 0.7); backdrop-filter: blur(12px);"
             >
               <p class="font-serif text-sm font-medium text-white">{about.name}</p>
-              <p class="mt-0.5 text-[10px] tracking-widest text-rose-500 uppercase">
+              <p class="mt-0.5 text-[10px] tracking-widest text-olive-500 uppercase">
                 {about.role}
               </p>
             </div>
@@ -96,14 +96,14 @@ import Container from '../ui/Container.astro';
 
           <!-- Badge años -->
           <div
-            class="absolute -top-4 -right-4 flex h-16 w-16 flex-col items-center justify-center rounded-2xl border border-rose-500/20 shadow-lg"
-            style="background: rgba(163, 107, 126, 0.15); backdrop-filter: blur(12px);"
+            class="absolute -top-4 -right-4 flex h-16 w-16 flex-col items-center justify-center rounded-2xl border border-olive-500/20 shadow-lg"
+            style="background: rgba(107, 111, 53, 0.15); backdrop-filter: blur(12px);"
             aria-hidden="true"
           >
             <span class="text-xl leading-none font-semibold text-white">
               {about.badgeYears}
             </span>
-            <span class="text-[8px] leading-tight tracking-wider text-rose-500 uppercase">
+            <span class="text-[8px] leading-tight tracking-wider text-olive-500 uppercase">
               {about.badgeLabelTop}<br/>{about.badgeLabelBottom}
             </span>
           </div>

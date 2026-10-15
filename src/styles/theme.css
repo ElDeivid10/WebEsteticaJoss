@@ -1,24 +1,36 @@
 /* =====================================================
    YOSS BEAUTY SALON — DESIGN TOKENS
-   Single source of truth para colores, fuentes y radios
+   Paleta: Verde Olivo (principal) + Beige (secundario)
    ===================================================== */
 
 @theme {
-  /* ── Paleta de marca ────────────────────────────── */
-  --color-rose-50: #fdf2f4;
-  --color-rose-100: #fcf9fa;
-  --color-rose-200: #f0eaec;
-  --color-rose-300: #e8bfcc;
-  --color-rose-400: #c895a6;
-  --color-rose-500: #a36b7e;
-  --color-rose-600: #8f5a6b;
+  /* ── Verde Olivo (Olive) — color de marca principal ── */
+  --color-olive-50: #f5f3e8;
+  --color-olive-100: #e8e4cf;
+  --color-olive-200: #d1c89e;
+  --color-olive-300: #b3a96d;
+  --color-olive-400: #8a8b4a;
+  --color-olive-500: #6b6f35;
+  --color-olive-600: #555831;
+  --color-olive-700: #404229;
+  --color-olive-800: #2d2f1f;
+  --color-olive-900: #1a1c12;
 
-  --color-ink-50: #f5f1f2;
-  --color-ink-100: #e0d8db;
-  --color-ink-700: #4a4346;
-  --color-ink-800: #2c2829;
-  --color-ink-900: #1a1618;
-  --color-ink-950: #0f0d0e;
+  /* ── Beige — fondos claros y secciones ────────────── */
+  --color-beige-50: #faf6ef;
+  --color-beige-100: #f3ecdc;
+  --color-beige-200: #e8dcc0;
+  --color-beige-300: #d4bf8e;
+  --color-beige-400: #b89968;
+  --color-beige-500: #8c7345;
+
+  /* ── Ink — tonos oscuros neutros con tinte oliva ──── */
+  --color-ink-50: #f5f4ee;
+  --color-ink-100: #e0dfd6;
+  --color-ink-700: #4a4940;
+  --color-ink-800: #1f2418;
+  --color-ink-900: #14180f;
+  --color-ink-950: #0a0c08;
 
   /* ── Tipografía ─────────────────────────────────── */
   --font-serif: 'Cormorant Garamond', 'Georgia', serif;
@@ -30,7 +42,7 @@
   --radius-2xl: 1.5rem;
   --radius-3xl: 1.75rem;
 
-  --shadow-glow-rose: 0 0 40px -8px rgba(163, 107, 126, 0.45);
+  --shadow-glow-olive: 0 0 40px -8px rgba(107, 111, 53, 0.45);
   --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.04);
 
   /* ── Easing curves ──────────────────────────────── */
